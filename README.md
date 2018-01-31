@@ -1,0 +1,1 @@
+Demonstrates and visualizes how to the Graham Scan Convex Hull Algorithm works.

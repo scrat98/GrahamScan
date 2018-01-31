@@ -1,0 +1,5 @@
+# You will first need install the requirements with:
+#     pip install -r requirements.txt
+#
+pyqt5
+matplotlib
