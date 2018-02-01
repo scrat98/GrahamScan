@@ -1,4 +1,6 @@
 import sys
+from functools import reduce
+from math import acos, sqrt
 
 
 class GrahamAlgorithm:
@@ -7,16 +9,45 @@ class GrahamAlgorithm:
         print('GrahamAlgorithm init success')
 
     def get_convex_indices(self, points):
-        return list(range(0, len(points), 2))
+        TURN_LEFT, TURN_RIGHT, TURN_NONE = (1, -1, 0)
+
+        def cmp(a, b):
+            return (a > b) - (a < b)
+
+        def turn(p, q, r):
+            return cmp((q[0] - p[0]) * (r[1] - p[1]) - (r[0] - p[0]) * (q[1] - p[1]), 0)
+
+        def sort_points(points):
+            def slope(index):
+                x = points[indices[0]]
+                y = points[index]
+                return (x[1] - y[1]) / \
+                       (x[0] - y[0])
+
+            indices = range(len(points))
+            indices = sorted(indices, key=lambda index: points[index])
+            indices = indices[:1] + sorted(indices[1:], key=slope)
+
+            return indices
+
+        def keep_left(hull, p):
+            while len(hull) > 1 and turn(points[hull[-2]], points[hull[-1]], points[p]) != TURN_LEFT:
+                hull.pop()
+
+            hull.append(p)
+            return hull
+
+        indices = sort_points(points)
+        return reduce(keep_left, indices, [])
 
     def get_convex_points(self, points):
         indices = self.get_convex_indices(points)
-        ans = []
+        hull = []
 
         for index in indices:
-            ans.append([points[index][0], points[index][1]])
+            hull.append([points[index][0], points[index][1]])
 
-        return ans
+        return hull
 
     def get_convex_log(self, points):
         print('log')
