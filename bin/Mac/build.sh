@@ -18,6 +18,7 @@ case "$1" in
     ;;
 "help" | "h")
     echo -e "Build options:
+    all                 Build all components
     algorithm or algo   Build algorithm
     visualizer or vis   Build visualizer
     gui                 Build gui
