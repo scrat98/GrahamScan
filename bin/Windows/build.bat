@@ -16,6 +16,7 @@ IF "%1"=="all" (
 
 IF "%1"=="help" (
     echo "Build options:"
+    echo "  all                 Build all components"
     echo "  algorithm or algo   Build algorithm"
     echo "  visualizer or vis   Build visualizer"
     echo "  gui                 Build gui"
@@ -23,6 +24,7 @@ IF "%1"=="help" (
 )
 IF "%1"=="h" (
     echo "Build options:"
+    echo "  all                 Build all components"
     echo "  algorithm or algo   Build algorithm"
     echo "  visualizer or vis   Build visualizer"
     echo "  gui                 Build gui"
