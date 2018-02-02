@@ -9,7 +9,7 @@ class GrahamAlgorithm:
         print('GrahamAlgorithm init success')
 
     def get_points_from_data(self, data):
-        return data
+        return 'data'
 
     def get_convex_indices(self, data):
         TURN_LEFT, TURN_RIGHT, TURN_NONE = (1, -1, 0)
