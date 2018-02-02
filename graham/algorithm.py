@@ -8,8 +8,12 @@ class GrahamAlgorithm:
     def __init__(self):
         print('GrahamAlgorithm init success')
 
-    def get_convex_indices(self, points):
+    def get_points_from_data(self, data):
+        return data
+
+    def get_convex_indices(self, data):
         TURN_LEFT, TURN_RIGHT, TURN_NONE = (1, -1, 0)
+        points = self.get_points_from_data(data)
 
         def cmp(a, b):
             return (a > b) - (a < b)
@@ -39,7 +43,8 @@ class GrahamAlgorithm:
         indices = sort_points(points)
         return reduce(keep_left, indices, [])
 
-    def get_convex_points(self, points):
+    def get_convex_points(self, data):
+        points = self.get_points_from_data(data)
         indices = self.get_convex_indices(points)
         hull = []
 
@@ -48,5 +53,6 @@ class GrahamAlgorithm:
 
         return hull
 
-    def get_convex_log(self, points):
+    def get_convex_log(self, data):
+        points = self.get_points_from_data(data)
         print('log')
