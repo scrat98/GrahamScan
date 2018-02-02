@@ -34,4 +34,5 @@ if __name__ == '__main__':
     # points = [[3, 9], [5, 5], [2, 2], [1, 1], [8, 5], [11, 1], [1, 0], [19, -1], [1, -1], [20, -1], [-5, 0], [-4, 0], [-5, 1]]
     scatter_plot(points, algo.get_convex_points(points))
 
+    algo.get_convex_log(points)
     # sys.exit(app.exec_())
