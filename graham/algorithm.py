@@ -1,6 +1,6 @@
 import sys
 from functools import reduce
-from math import acos, sqrt
+from math import atan2
 
 
 class GrahamAlgorithm:
@@ -21,8 +21,7 @@ class GrahamAlgorithm:
             def slope(index):
                 x = points[indices[0]]
                 y = points[index]
-                return (x[1] - y[1]) / \
-                       (x[0] - y[0])
+                return atan2(x[0] - y[0], y[1] - x[1])
 
             indices = range(len(points))
             indices = sorted(indices, key=lambda index: points[index])
