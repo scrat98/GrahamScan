@@ -13,7 +13,6 @@ class GrahamAlgorithm:
 
     def get_convex_indices(self, data):
         TURN_LEFT, TURN_RIGHT, TURN_NONE = (1, -1, 0)
-        points = self.get_points_from_data(data)
 
         def cmp(a, b):
             return (a > b) - (a < b)
@@ -40,6 +39,7 @@ class GrahamAlgorithm:
             hull.append(p)
             return hull
 
+        points = self.get_points_from_data(data)
         indices = sort_points(points)
         return reduce(keep_left, indices, [])
 
